@@ -1,0 +1,59 @@
+﻿@page "/"
+
+    <div class="listbox1">
+    <SfListBox TValue="string[]" TItem="ListBoxDataModel" DataSource="@ListBoxData" Scope="@scope" 
+               AllowDragAndDrop="true">
+        <ListBoxFieldSettings Value="Id" Text="Vegetable" GroupBy="Category"></ListBoxFieldSettings>
+    </SfListBox>
+    </div>
+    <div class="listbox2">
+        <SfListBox TValue="string[]" TItem="ListBoxDataModel" DataSource="@ListBoxData1" Scope="@scope"
+                   AllowDragAndDrop="true">
+            <ListBoxFieldSettings Value="Id" Text="Vegetable" GroupBy="Category"></ListBoxFieldSettings>
+        </SfListBox>
+    </div>
+
+@code {
+    private readonly string scope = "combined-list";
+
+    public class ListBoxDataModel
+    {
+        public string Id { get; set; }
+        public string Vegetable { get; set; }
+        public string Category { get; set; }
+    }
+
+    List<ListBoxDataModel> ListBoxData = new List<ListBoxDataModel>()
+    {
+        new ListBoxDataModel() {  Id = "item1", Vegetable = "Cabbage", Category = "Leafy and Salad" },
+        new ListBoxDataModel() {  Id = "item2", Vegetable = "Chickpea", Category = "Beans" },
+        new ListBoxDataModel() {  Id = "item3", Vegetable = "Garlic", Category = "Bulb and Stem" },
+        new ListBoxDataModel() {  Id = "item4", Vegetable = "Green bean", Category = "Beans" },
+        new ListBoxDataModel() {  Id = "item5", Vegetable = "Onion", Category = "Bulb and Stem" },
+        new ListBoxDataModel() {  Id = "item6", Vegetable = "Pumpkins", Category = "Leafy and Salad" },
+
+    };
+    List<ListBoxDataModel> ListBoxData1 = new List<ListBoxDataModel>()
+    {
+        new ListBoxDataModel() {  Id = "item1", Vegetable = "Spinach", Category = "Leafy and Salad" },
+        new ListBoxDataModel() {  Id = "item2", Vegetable = "Horse gram", Category = "Beans" },
+        new ListBoxDataModel() {  Id = "item3", Vegetable = "Nopal", Category = "Bulb and Stem" },
+        new ListBoxDataModel() {  Id = "item4", Vegetable = "Soybeans", Category = "Beans" },
+        new ListBoxDataModel() {  Id = "item5", Vegetable = "Cardoon", Category = "Bulb and Stem" },
+        new ListBoxDataModel() {  Id = "item6", Vegetable = "Yarrow", Category = "Leafy and Salad" },
+
+    };
+
+}
+
+<style>
+    .listbox1 {
+        width: 48%;
+        float: left;
+    }
+
+    .listbox2 {
+        width: 48%;
+        float: right;
+    }
+</style>
